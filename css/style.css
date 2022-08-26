@@ -1,4 +1,62 @@
+.col {
+    background-color: blueviolet; /*color de fondo del header*/
+}
+
 #ApLogo {
-    background-color: blueviolet;
-    width: 150px;
+    width: 150px; /* ancho de logo argentina programa*/
+}
+
+#social {
+    width:50px;
+    margin-top: 25px; /*tamaño de los iconos de rrss*/
+}
+
+#banner {
+    height: 600px;
+    margin-top: 10px;
+}
+
+/*estilo div de acerca de*/
+
+#infopersonal{
+    padding: 10px;
+    text-align: center;
+}
+
+/*estilo de nombre*/
+#nombre{
+    font-weight: bold;
+    margin-top: 20%;
+}
+
+/*estilo foto de perfil*/
+@media (min-width: 576px){
+    #fotodeperfil
+    {
+        position: absolute;
+        width: 15%;
+        border-radius: 100%;
+        left: 10%;
+        top:580px;
+    }
+    
+}
+@media (max-width: 575px){
+    #fotodeperfil
+    {
+        position: absolute;
+        width: 35%;
+        border-radius: 100%;
+        left: 33%;
+        top:580px;
+    }
+}
+
+/*estilo para exp laboral*/
+#experiencia{
+    padding:30px;
+}
+
+h1, h3 {
+    display: inline;
 }
