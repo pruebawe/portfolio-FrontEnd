@@ -1,113 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
-#skill {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	font-size: 20px;
-	color: #333;
-	list-style-type: none;
-	text-decoration: none;
-}
+const block =document.querySelectorAll('.block');
+        window.addEventListener('load', function(){
+            block.forEach(item => {
+                let numElement = item.querySelector('.num');
+                let num = parseInt(numElement.innerText);
+                let count =0;
+                let time = 2000 / num;
 
-#contenedor {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	padding: 20px;
-	background-color: #292929;
-}
+                setInterval(() => {
+                    if(count == num){
+                        clearInterval();
+                    } else{
+                    count += 1;
+                    numElement.innerText = count;
+                }
+                }, time)
 
-.block {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 180px;
-	height: 180px;
-	border-radius: 50%;
-}
-
-.box {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: calc(100% - 50px);
-	height: calc(100% - 50px);
-	border-radius: 50%;
-	background-color: #292929;
-	box-shadow: 0 0 5px 3px #222121;
-}
-
-.box::before {
-	position: absolute;
-	content: '';
-	width: calc(100% + 28px);
-	height: calc(100% + 28px);
-	border-radius: 50%;
-	border: 1px solid #353535;
-}
-
-.box .number span {
-	color: #e9e9e9;
-}
-
-.box .number .num {
-	font-size: 35px;
-	font-weight: bold;
-}
-
-.box .number .sub {
-	font-size: 20px;
-}
-
-.box .title {
-	font-size: 15px;
-	color: #9b9b9b;
-}
-
-.dots {
-	display: block;
-	position: absolute;
-	z-index: 2;
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	transition: 2s transform, 2s opacity ease;
-}
-
-.dots::after {
-	position: absolute;
-	content: '';
-	width: 10px;
-	height: 10px;
-	top: 5px;
-	left: 50%;
-	border-radius: 50%;
-	background-color: #b7b5b5;
-	box-shadow: 0 0 5px 2px #585858;
-	transform: translateX(-50%);
-}
-
-.svg {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	fill: none;
-	transform: rotate(-90deg);
-}
-
-.circle {
-	stroke: url(#gradientStyle);
-	stroke-width: 4px;
-	stroke-dasharray: 503;
-	stroke-dashoffset: 503;
-	animation-duration: 2s;
-	animation-timing-function: linear;
-	animation-fill-mode: forwards;
-	transition: 2s stroke-dashoffset;
-}
+                let circle = item.querySelector('.circle');
+                circle.style.strokeDashoffset 
+                = 503 - (503 *(num / 100 )); 
+                let dots = item.querySelector('.dots');
+                dots.style.transform = 
+                `rotate(${360 * (num / 100)}deg)`;
+                if(num == 100){
+                    dots.style.opacity = 0;
+                }
+            })
+        });
